@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasey's Portfolio - Home</title>
+    <meta name="description" content="Creative developer and digital designer crafting exceptional digital experiences through innovative design and development. Let's bring your vision to life." />
+    <meta name="author" content="Kasey's Portfolio" />
+
+    <meta property="og:title" content="Kasey's Portfolio - Creative Developer & Digital Designer" />
+    <meta property="og:description" content="Crafting exceptional digital experiences through innovative design and development. Let's bring your vision to life." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.pexels.com/photos/26891720/pexels-photo-26891720.jpeg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://images.pexels.com/photos/26891720/pexels-photo-26891720.jpeg" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font: inherit;
+        }
+
+        img, picture, svg, video {
+            display: block;
+            max-width: 100%;
+        }
+
+        input, textarea, select, button {
+            font: inherit;
+            color: inherit;
+        }
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        /* Container */
+        .container {
+            width: min(90%, 75rem);
+            margin-inline: auto;
+            padding: 1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-links a[aria-current="page"] {
+            color: #2563eb;
+        }
+
+        .nav-links a[aria-current="page"]::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #2563eb;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .section-sub {
+            text-align: center;
+            max-width: 35rem;
+            margin: 0 auto 3rem;
+            color: #64748b;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-art {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            height: 300px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-outline:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Why Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .feature-card p {
+            color: #64748b;
+        }
+
+        /* CTA Secondary */
+        .cta-secondary {
+            background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        .cta-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .cta-secondary h2 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-secondary p {
+            color: #e2e8f0;
+            max-width: 30rem;
+        }
+
+        .cta-action {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-action .btn {
+            background: white;
+            color: #2563eb;
+        }
+
+        .cta-action .btn:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-video {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border: none;
+        }
+
+        .project-card h3 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            color: #1e293b;
+        }
+
+        .project-card .muted {
+            padding: 0 1.5rem 1.5rem;
+            color: #64748b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-cta h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta .section-sub {
+            text-align: left;
+            margin: 1rem 0;
+            color: #94a3b8;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e2e8f0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #334155;
+        }
+
+        .copyright {
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-art {
+                order: -1;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .lead {
+                font-size: 1.125rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 5rem;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            
+            .hero-ctas {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar container">
+            <div class="logo"><a href="index.html">Kasey's Portfolio</a></div>
+            <ul id="primary-navigation" class="nav-links">
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero section">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Creative Developer &amp; Digital Designer</h1>
+                <p class="lead">Crafting exceptional digital experiences through innovative design and development. Let's bring your vision to life.</p>
+                <div class="hero-ctas">
+                    <a href="services.html" class="btn btn-primary">View My Work</a>
+                    <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-art">
+                <img src="https://images.pexels.com/photos/26891720/pexels-photo-26891720.jpeg" alt="Creative workspace with laptop and design tools" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="why container section" id="why">
+            <h2 class="section-title">Why Choose Me?</h2>
+            <p class="section-sub">I combine technical expertise with creative vision to deliver outstanding results.</p>
+
+            <div class="features">
+                <article class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Clean Code</h3>
+                    <p>Well-structured, maintainable code following best practices.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Modern Design</h3>
+                    <p>Beautiful, responsive designs that engage your users.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Performance</h3>
+                    <p>Optimized for speed and exceptional user experience.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-secondary section">
+            <div class="container cta-grid">
+                <div>
+                    <h2>Ready to Start Your Project?</h2>
+                    <p>Let's collaborate to create something amazing together. I'm here to help bring your ideas to life.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="contact.html" class="btn btn-primary">Start a Conversation</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects container section" id="projects">
+            <h2 class="section-title">Selected Projects</h2>
+            <p class="section-sub">A quick look at recent work — designs, prototypes, and production sites.</p>
+
+            <div class="project-grid">
+                <article class="project-card">
+                    <video class="project-video" controls>
+                        <source src="https://www.pexels.com/download/video/8370040/" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3>Project One</h3>
+                    <p class="muted">A modern web app prototype with strong UX focus.</p>
+                </article>
+
+                <article class="project-card">
+                    <video class="project-video" controls>
+                        <source src="https://www.pexels.com/download/video/6994619/" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3>Project Two</h3>
+                    <p class="muted">E-commerce redesign that increased conversions.</p>
+                </article>
+
+                <article class="project-card">
+                    <video class="project-video" controls>
+                        <source src="https://www.pexels.com/download/video/8523642/" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3>Project Three</h3>
+                    <p class="muted">Performance-first marketing landing page.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-cta">
+                <h3>Ready to Start Your Project?</h3>
+                <p class="section-sub">Let's collaborate to create something amazing together. I'm here to help bring your ideas to life.</p>
+                <a href="contact.html" class="btn btn-primary">Get in touch</a>
+            </div>
+
+            <div class="footer-links">
+                <div class="quick-links">
+                    <h4>Quick Links</h4>
+                    <nav aria-label="Quick Links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+
+                <div class="connect">
+                    <h4>Connect</h4>
+                    <nav aria-label="Connect">
+                        <a href="#">GitHub</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                        <a href="mailto:contact@portfolio.com">Email</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <div class="built-with">&nbsp;</div>
+            <div class="copyright">&copy; 2025 Kasey's Portfolio. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.contains('active');
+                    menuToggle.setAttribute('aria-expanded', !isOpen);
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

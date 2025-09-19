@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Kasey's Portfolio</title>
+    <meta name="description" content="Full-stack developer and designer specializing in modern web applications, mobile development, and user experience design. Let's build something amazing together." />
+    <meta name="author" content="Kasey's Portfolio" />
+
+    <meta property="og:title" content="Kasey's Portfolio - Services" />
+    <meta property="og:description" content="Full-stack developer and designer specializing in modern web applications, mobile development, and user experience design." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7c3645cc-572a-4689-9900-9338f326ede4/id-preview-559d08f2--fc644ba3-ada7-4625-8bf2-7b32faa08f56.lovable.app-1758218735396.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7c3645cc-572a-4689-9900-9338f326ede4/id-preview-559d08f2--fc644ba3-ada7-4625-8bf2-7b32faa08f56.lovable.app-1758218735396.png" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font: inherit;
+        }
+
+        img, picture, svg, video {
+            display: block;
+            max-width: 100%;
+        }
+
+        input, textarea, select, button {
+            font: inherit;
+            color: inherit;
+        }
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        /* Container */
+        .container {
+            width: min(90%, 75rem);
+            margin-inline: auto;
+            padding: 1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-links a[aria-current="page"] {
+            color: #2563eb;
+        }
+
+        .nav-links a[aria-current="page"]::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #2563eb;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .section-sub {
+            text-align: center;
+            max-width: 35rem;
+            margin: 0 auto 3rem;
+            color: #64748b;
+        }
+
+        /* Service Cards */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .card ul li {
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+        }
+
+        .muted {
+            color: #94a3b8;
+        }
+
+        .price {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .price strong {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-num {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #dbeafe;
+            margin-bottom: 1rem;
+        }
+
+        .process-step h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .process-step p {
+            color: #64748b;
+        }
+
+        /* CTA Section */
+        .cta-secondary {
+            background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        .cta-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .cta-secondary h2 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-secondary p {
+            color: #e2e8f0;
+            max-width: 30rem;
+        }
+
+        .cta-action {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-action .btn {
+            background: white;
+            color: #2563eb;
+        }
+
+        .cta-action .btn:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-action .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-action .btn-outline:hover {
+            background: white;
+            color: #2563eb;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-cta h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta .section-sub {
+            text-align: left;
+            margin: 1rem 0;
+            color: #94a3b8;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e2e8f0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #334155;
+        }
+
+        .copyright {
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 5rem;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta-action {
+                justify-content: center;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-action {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar container">
+            <div class="logo"><a href="index.html">Kasey's Portfolio</a></div>
+            <ul id="primary-navigation" class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" aria-current="page">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="services section">
+            <div class="container">
+                <h1 class="section-title">Services & Solutions</h1>
+                <p class="section-sub">I offer comprehensive digital solutions to help your business thrive in the modern world. From concept to deployment, I've got you covered.</p>
+
+                <div class="service-cards">
+                    <article class="card">
+                        <h2>Web Development</h2>
+                        <p>Full-stack web applications built with modern technologies like React, Node.js, and TypeScript.</p>
+                        <ul class="muted">
+                            <li>Responsive Design</li>
+                            <li>Performance Optimization</li>
+                            <li>SEO Friendly</li>
+                            <li>Cross-browser Compatible</li>
+                        </ul>
+                        <div class="price">Starting at <strong>$2,500</strong></div>
+                        <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    </article>
+
+                    <article class="card">
+                        <h2>Mobile Development</h2>
+                        <p>Native and cross-platform mobile applications that deliver exceptional user experiences.</p>
+                        <ul class="muted">
+                            <li>iOS & Android</li>
+                            <li>React Native</li>
+                            <li>API Integration</li>
+                            <li>App Store Deployment</li>
+                        </ul>
+                        <div class="price">Starting at <strong>$3,500</strong></div>
+                        <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    </article>
+
+                    <article class="card">
+                        <h2>UI/UX Design</h2>
+                        <p>User-centered design solutions that combine aesthetics with functionality and usability.</p>
+                        <ul class="muted">
+                            <li>User Research</li>
+                            <li>Wireframing</li>
+                            <li>Prototyping</li>
+                            <li>Design Systems</li>
+                        </ul>
+                        <div class="price">Starting at <strong>$1,500</strong></div>
+                        <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    </article>
+
+                    <article class="card">
+                        <h2>Custom Solutions</h2>
+                        <p>Tailored software solutions to meet your specific business needs and requirements.</p>
+                        <ul class="muted">
+                            <li>API Development</li>
+                            <li>Database Design</li>
+                            <li>Third-party Integrations</li>
+                            <li>Maintenance</li>
+                        </ul>
+                        <div class="price">Quote on Request</div>
+                        <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="process section">
+            <div class="container">
+                <h2 class="section-title">My Process</h2>
+                <p class="section-sub">A structured approach that ensures quality results and client satisfaction every time.</p>
+
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-num">01</div>
+                        <h4>Discovery</h4>
+                        <p>We start by understanding your goals, target audience, and project requirements.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-num">02</div>
+                        <h4>Planning</h4>
+                        <p>I create a detailed project plan with timelines, milestones, and deliverables.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-num">03</div>
+                        <h4>Design</h4>
+                        <p>Crafting beautiful, user-friendly designs that align with your brand identity.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-num">04</div>
+                        <h4>Development</h4>
+                        <p>Building robust, scalable solutions using best practices and modern technologies.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-num">05</div>
+                        <h4>Testing</h4>
+                        <p>Thorough testing to ensure quality, performance, and cross-platform compatibility.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-num">06</div>
+                        <h4>Launch</h4>
+                        <p>Deploying your project and providing ongoing support and maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-secondary section">
+            <div class="container cta-grid">
+                <div>
+                    <h2>Ready to Get Started?</h2>
+                    <p>Let's discuss your project and see how I can help bring your vision to life.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                    <a href="about.html" class="btn btn-outline">Learn More About Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-cta">
+                <h3>Ready to Start Your Project?</h3>
+                <p class="section-sub">Let's collaborate to create something amazing together. I'm here to help bring your ideas to life.</p>
+                <a href="contact.html" class="btn btn-primary">Get in touch</a>
+            </div>
+
+            <div class="footer-links">
+                <div class="quick-links">
+                    <h4>Quick Links</h4>
+                    <nav aria-label="Quick Links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+
+                <div class="connect">
+                    <h4>Connect</h4>
+                    <nav aria-label="Connect">
+                        <a href="#">GitHub</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                        <a href="mailto:contact@portfolio.com">Email</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <div class="built-with">&nbsp;</div>
+            <div class="copyright">&copy; 2025 Kasey's Portfolio. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.contains('active');
+                    menuToggle.setAttribute('aria-expanded', !isOpen);
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
