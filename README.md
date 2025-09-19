@@ -56,9 +56,9 @@ Once your project is complete, choose a method to **host your site online**.
 
 You can use:
 
-* **GitHub Pages** (great for portfolios and static sites)
-* **Netlify** (powerful CI/CD features and easy form support)
-* **Vercel** (lightning-fast deployment for frontend projects)
+* **GitHub Pages** (https://kasey-okm.github.io/plp-webtechnologies-classroom-july2025-july-2025-final-project-and-deployment-Final-Project-and-Depl/)
+* **Netlify** (https://nimble-begonia-f6b99f.netlify.app/)
+* **Vercel** (https://plp-webtechnologies-classroom-july2-azure-three.vercel.app/)
 
 Deploy your project and confirm that:
 
